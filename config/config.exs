@@ -13,10 +13,10 @@ config :squash,
 # Configures the endpoint
 config :squash, SquashWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "zJnYah5dbifXxRK+Xn2lJjzsEf1Yrgs52Qmzpmrfl3+6W3y02UJpimvromoWHpGz",
+  secret_key_base: "0YYdGg3xfWOvxOSSaslKRNmz3U0Okflnek7uLHT1eGY2f0LF/71VtXDTSzmFu7xd",
   render_errors: [view: SquashWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Squash.PubSub,
-  live_view: [signing_salt: "ti1PoTzh"]
+  live_view: [signing_salt: "ekxX5jgzEn4q74dhpsu2SW0JunBnfuZ+4UAujyu6U9bKeRcSvsOs1FYAGzRoyR62"]
 
 # Configures Elixir's Logger
 config :logger, :console,
