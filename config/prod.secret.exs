@@ -39,4 +39,3 @@ config :squash, SquashWeb.Endpoint,
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
-config: squash, SquashWeb.Endpoint, server: true
