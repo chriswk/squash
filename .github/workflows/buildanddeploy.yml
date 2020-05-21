@@ -1,4 +1,7 @@
-on: push
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
   verify:
@@ -6,7 +9,7 @@ jobs:
     strategy:
       matrix:
         otp: [22.2.7]
-        elixir: [1.10.1]
+        elixir: [1.10.3]
 
     services:
       db:
@@ -28,7 +31,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 13.8.0
+          node-version: 14.2.0
 
       - uses: actions/cache@v1
         id: deps-cache
@@ -60,3 +63,28 @@ jobs:
 
       - run: mix format --check-formatted
       - run: mix test
+  deploy:
+    # only run this job if the verify job succeeds
+    needs: verify
+
+    # only run this job if the workflow is running on the master branch
+    if: github.ref == 'refs/heads/master'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        
+        # actions/checkout@v2 only checks out the latest commit,
+        # so we need to tell it to check out the entire master branch
+        with:
+          ref: master
+          fetch-depth: 0
+
+      # configure the gigalixir-actions with our credentials and app name
+      - uses: mhanberg/gigalixir-action@v0.1.0
+        with:
+          GIGALIXIR_USERNAME: ${{ secrets.GIGALIXIR_USERNAME }}
+          GIGALIXIR_PASSWORD: ${{ secrets.GIGALIXIR_PASSWORD }}
+          GIGALIXIR_APP: <your app name>
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
