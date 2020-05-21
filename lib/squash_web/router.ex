@@ -18,7 +18,8 @@ defmodule SquashWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
-    live "/referee", RefereeLive, :index
+    live "/referee", RefereeLive
+    live "/referee/:matchid", RefereeLive
   end
 
   # Other scopes may use custom stacks.
