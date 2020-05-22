@@ -1,5 +1,6 @@
 defmodule SquashWeb.PageLive do
   use SquashWeb, :live_view
+  @moduledoc "Index page"
 
   @impl true
   def mount(_params, _session, socket) do
