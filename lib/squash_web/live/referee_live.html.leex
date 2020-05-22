@@ -1,8 +1,12 @@
 <section class="phx-hero">
     <div class="player1">
+        <button class="decrement" phx-click="decp1">-</button>
         <div class="score"><%= @player1score %></div>
+        <button class="increment" phx-click="incp1">+</button>
     </div>
     <div class="player2">
+        <button class="decrement" phx-click="decp2">-</button>
         <div class="score"><%= @player2score %></div>
+        <button class="increment" phx-click="incp2">+</button>
     </div>
 </section>
