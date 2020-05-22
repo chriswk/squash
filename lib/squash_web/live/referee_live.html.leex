@@ -1,12 +1,47 @@
 <section class="phx-hero">
-    <div class="player1">
-        <button class="decrement" phx-click="decp1">-</button>
-        <div class="score"><%= @player1score %></div>
-        <button class="increment" phx-click="incp1">+</button>
+    <div class="container">
+    <div class="row">
+        <div class="player1 column">
+            <button class="button increment" phx-click="incp1">+</button>
+            <div class="score"><%= @player1score %></div>
+            <button class="button decrement" phx-click="decp1">-</button>
+        </div>
+        <div class="player2 column">
+                <button class="button increment" phx-click="incp2">+</button>
+                <div class="score"><%= @player2score %></div>
+                <button class="button decrement" phx-click="decp2">-</button>
+        </div>
     </div>
-    <div class="player2">
-        <button class="decrement" phx-click="decp2">-</button>
-        <div class="score"><%= @player2score %></div>
-        <button class="increment" phx-click="incp2">+</button>
     </div>
+</section>
+<section class="phx-hero">
+    <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Game 1</th>
+                <th>Game 2</th>
+                <th>Game 3</th>
+                <th>Game 4</th>
+                <th>Game 5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= @player1name %></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><%= @player2name %></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
 </section>

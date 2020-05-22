@@ -3,7 +3,14 @@ defmodule SquashWeb.RefereeLive do
   @moduledoc "Setup refereeing"
 
   def mount(%{"matchid" => matchid}, %{}, socket) do
-    {:ok, assign(socket, player1score: 0, player2score: 0, matchid: matchid)}
+    {:ok,
+     assign(socket,
+       player1name: "Gaultier",
+       player2name: "Elshorbagy",
+       player1score: 0,
+       player2score: 0,
+       matchid: matchid
+     )}
   end
 
   def handle_event("incp1", _, socket) do
